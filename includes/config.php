@@ -7,10 +7,16 @@
  */
 function config($key = '')
 {
-    $hostname = getenv('HTTP_HOST');	
+    $hostname = getenv('HOSTNAME');	
+    function current_url()
+                {
+                    $url      = "http://" . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
+                    $validURL = str_replace("&", "&amp", $url);
+                    return $validURL;
+                }
     $config = [
         'name' => $hostname,
-        'site_url' => '',
+        'site_url' => .current_url(),
         'pretty_uri' => true,
         'nav_menu' => [
             '' => 'Home',
