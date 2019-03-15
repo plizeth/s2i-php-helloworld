@@ -14,9 +14,10 @@ function config($key = '')
                     $validURL = str_replace("&", "&amp", $url);
                     return $validURL;
                 }
+    $url = current_url();
     $config = [
         'name' => $hostname,
-        'site_url' => .current_url(),
+        'site_url' => $url,
         'pretty_uri' => true,
         'nav_menu' => [
             '' => 'Home',
