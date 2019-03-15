@@ -8,13 +8,18 @@
 function config($key = '')
 {
     $hostname = getenv('HOSTNAME');	
-    function current_url()
-                {
-                    $url      = "http://" . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
-                    $validURL = str_replace("&", "&amp", $url);
-                    return $validURL;
-                }
-    $url = current_url();
+    function curPageURL() {
+      $pageURL = 'http';
+      if ($_SERVER["HTTPS"] == "on") {$pageURL .= "s";}
+      $pageURL .= "://";
+      if ($_SERVER["SERVER_PORT"] != "80") {
+       $pageURL .= $_SERVER["SERVER_NAME"].":".$_SERVER["SERVER_PORT"].$_SERVER["REQUEST_URI"];
+      } else {
+       $pageURL .= $_SERVER["SERVER_NAME"].$_SERVER["REQUEST_URI"];
+      }
+      return $pageURL;
+     }
+    $url = curPageURL();
     $config = [
         'name' => $hostname,
         'site_url' => $url,
