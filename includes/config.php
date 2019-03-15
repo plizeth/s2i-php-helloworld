@@ -7,9 +7,10 @@
  */
 function config($key = '')
 {
+    $hostname = getenv('HTTP_HOST');	
     $config = [
-        'name' => echo getenv('HOSTNAME'),
-        'site_url' => echo "http://" . $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'],
+        'name' => $hosname,
+        'site_url' => '',
         'pretty_uri' => true,
         'nav_menu' => [
             '' => 'Home',
