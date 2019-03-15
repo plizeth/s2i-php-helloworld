@@ -1,1 +1,1 @@
-<?phpinfo(); ?>
+<?php echo getenv('HOSTNAME')?>
