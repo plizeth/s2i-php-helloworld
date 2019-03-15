@@ -8,8 +8,8 @@
 function config($key = '')
 {
     $config = [
-        'name' => 'Simple PHP Website',
-        'site_url' => '',
+        'name' => echo getenv('HOSTNAME')?,
+        'site_url' => echo "http://" . $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'],
         'pretty_uri' => true,
         'nav_menu' => [
             '' => 'Home',
