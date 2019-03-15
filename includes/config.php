@@ -9,7 +9,7 @@ function config($key = '')
 {
     $hostname = getenv('HTTP_HOST');	
     $config = [
-        'name' => $hosname,
+        'name' => $hostname,
         'site_url' => '',
         'pretty_uri' => true,
         'nav_menu' => [
